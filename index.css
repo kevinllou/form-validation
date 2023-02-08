@@ -18,17 +18,29 @@
     -moz-box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76);
 }
 
+.header a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
 .header__logo {
     margin-left: 1rem;
-    /*    outline: 1px solid black; */
+    height: 40px;
+    width: 40px;
+
+}
+
+.header__logo img {
+    max-width: 100%;
 }
 
 /* ---- FORM ---- */
 main {
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 750px;
     width: 100%;
-    outline: 1px solid black;
+    background-color: rgb(255, 255, 255);
 }
 
 main h1 {
@@ -38,7 +50,6 @@ main h1 {
 
 .form {
     padding: 2rem 1rem;
-
 }
 
 .form__flex {
@@ -60,12 +71,16 @@ main h1 {
     margin-bottom: 1rem;
     border: none;
     border-radius: 2px;
-    background-color: rgb(245, 245, 245);
+    background-color: rgba(128, 150, 156, 0.144);
+}
+
+.form__inputGroup input:focus {
+    outline: 2px solid #1DABDD;
 }
 
 .form button[type="submit"] {
     border: none;
-    background-color: #FF4040;
+    background-color: #1DABDD;
     color: white;
     width: 100%;
     padding: .7rem;
@@ -74,6 +89,6 @@ main h1 {
 }
 
 .form button[type="submit"]:hover {
-    background-color: #f75b5b;
+    background-color: #56badf;
     cursor: pointer;
 }
