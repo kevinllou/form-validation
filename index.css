@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* ---- HEADER ---- */
+.header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 2rem;
+    box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76);
+    -webkit-box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76);
+    -moz-box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76);
+}
+
+.header__logo {
+    margin-left: 1rem;
+    /*    outline: 1px solid black; */
+}
+
+/* ---- FORM ---- */
+
+/* main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.form {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 700px;
+    height: 500px;
+}
+
+main h1 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.form__flex {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form__column {
+    flex: 1;
+}
+
+.form__inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__inputGroup input {
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(245, 245, 245);
+}
+
+.form button[type="submit"] {
+    border: none;
+    background-color: #FF4040;
+    color: white;
+    width: 100%;
+    padding: .7rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form button[type="submit"]:hover {
+    background-color: #f75b5b;
+    cursor: pointer;
+}
