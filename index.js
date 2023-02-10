@@ -32,24 +32,25 @@ const inputTexts = document.querySelectorAll("input");
 inputTexts.forEach((inputElement) => {
   inputElement.addEventListener("input", (event) => {
     const inputId = inputElement.id;
-    let lastPasswordValue = "";
     /* get the id span value by merging strings */
     const tempString = `msg${inputId
       .charAt(0)
       .toUpperCase()}${inputId.substring(1)}`;
     const span = document.getElementById(tempString);
 
-    if (inputId !== "password") {
-      checkPasswordMatch(lastPasswordValue, inputElement.value, inputId, span);
-    } else {
-      lastPasswordValue = inputElement.value;
+    if (inputId !== "passwordConfirmation") {
       checkInputValidation(inputId, inputElement.value, span);
+    } else {
+      /* get the current password to compare */
+      let currentPass = document.querySelector('#password').value;
+      checkPasswordMatch(currentPass, inputElement.value, inputId, span);
     }
   });
 });
 
 /* Check if the passwords match */
-function checkPasswordMatch(passwordVal, passwordCheck,idReference, spanElem) {
+function checkPasswordMatch(passwordVal, passwordCheck, idReference, spanElem) {
+/*   console.log(`ps1: ${passwordVal}, ps2: ${passwordCheck}`); */
   if (!passwordVal.includes(passwordCheck)) {
     spanElem.innerHTML = msgInput[idReference];
   } else {
