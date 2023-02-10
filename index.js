@@ -15,15 +15,21 @@ const regexForInputs = {
 
 /* OBJECT MESSAGE */
 const msgInput = {
-  firstName: "Please provide a valid name",
-  lastName: "Please provide a valid last name",
-  phoneNumber: "Please provide a valid phone number Ej [7809-9087]",
-  email: "Please provide a valid email",
-  age: "Please provide a valid age. Ej [1 - 99]",
-  website: "Please provide a valid website URL",
+  firstName:
+    "Please provide a valid name <i class='<fa-solid fa-circle-exclamation'></i>",
+  lastName:
+    "Please provide a valid last name <i class='<fa-solid fa-circle-exclamation'></i>",
+  phoneNumber:
+    "Please provide a valid phone number Ej [7809-9087] <i class='<fa-solid fa-circle-exclamation'></i>",
+  email:
+    "Please provide a valid email <i class='<fa-solid fa-circle-exclamation'></i>",
+  age: "Please provide a valid age. Ej [1 - 99] <i class='<fa-solid fa-circle-exclamation'></i>",
+  website:
+    "Please provide a valid website URL <i class='<fa-solid fa-circle-exclamation'></i>",
   password:
     "it must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character",
-  passwordConfirmation: "The passwords do not match",
+  passwordConfirmation:
+    "The passwords do not match <i class='<fa-solid fa-circle-exclamation'></i>",
 };
 
 const inputTexts = document.querySelectorAll("input");
@@ -32,6 +38,7 @@ const inputTexts = document.querySelectorAll("input");
 inputTexts.forEach((inputElement) => {
   inputElement.addEventListener("input", (event) => {
     const inputId = inputElement.id;
+    const inputVal = inputElement;
     /* get the id span value by merging strings */
     const tempString = `msg${inputId
       .charAt(0)
@@ -39,33 +46,43 @@ inputTexts.forEach((inputElement) => {
     const span = document.getElementById(tempString);
 
     if (inputId !== "passwordConfirmation") {
-      checkInputValidation(inputId, inputElement.value, span);
+      checkInputValidation(inputId, inputVal, inputElement, span);
     } else {
       /* get the current password to compare */
-      let currentPass = document.querySelector('#password').value;
-      checkPasswordMatch(currentPass, inputElement.value, inputId, span);
+      let currentPass = document.querySelector("#password").value;
+      checkPasswordMatch(currentPass, inputVal, inputElement, inputId, span);
     }
   });
 });
 
 /* Check if the passwords match */
-function checkPasswordMatch(passwordVal, passwordCheck, idReference, spanElem) {
-/*   console.log(`ps1: ${passwordVal}, ps2: ${passwordCheck}`); */
+function checkPasswordMatch(
+  passwordVal,
+  passwordCheck,
+  inputElem,
+  idReference,
+  spanElem
+) {
+  /*   console.log(`ps1: ${passwordVal}, ps2: ${passwordCheck}`); */
   if (!passwordVal.includes(passwordCheck)) {
     spanElem.innerHTML = msgInput[idReference];
+    inputElem.style.border = "2px solid #b43333";
   } else {
     spanElem.innerHTML = "";
+    inputElem.style.border = "";
   }
 }
 
 /* If it doesn't match we change the span value to an error, if not, 
    we remove the span error message.
  */
-function checkInputValidation(idReference, currentValue, spanElem) {
+function checkInputValidation(idReference, currentValue, inputElem, spanElem) {
   if (!regexForInputs[idReference].test(currentValue)) {
     spanElem.innerHTML = msgInput[idReference];
+    inputElem.style.border = "2px solid #b43333";
   } else {
     spanElem.innerHTML = "";
+    inputElem.style.border = "";
   }
 }
 
