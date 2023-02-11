@@ -49,7 +49,13 @@ inputTexts.forEach((inputElement) => {
     } else {
       /* get the current password to compare */
       let currentPass = document.querySelector("#password").value;
-      checkPasswordMatch(currentPass, event.target.value, inputElement, inputId, span);
+      checkPasswordMatch(
+        currentPass,
+        event.target.value,
+        inputElement,
+        inputId,
+        span
+      );
     }
   });
 });
@@ -78,7 +84,7 @@ function checkPasswordMatch(
 function checkInputValidation(idReference, currentValue, inputElem, spanElem) {
   if (!regexForInputs[idReference].test(currentValue)) {
     spanElem.innerHTML = msgInput[idReference];
-    inputElem.style.border = "2px solid #b43333";
+    inputElem.style.border = "1.5px solid #b43333";
   } else {
     spanElem.innerHTML = "";
     inputElem.style.border = "";
@@ -104,9 +110,15 @@ form.addEventListener("submit", (event) => {
       const tempCharacter = `#msg${inputValue[0]
         .charAt(0)
         .toUpperCase()}${inputValue[0].substring(1)}`;
+
+      const inputElement = document.getElementById(inputValue[0]);
       const spanElement = document.querySelector(tempCharacter);
+
+      inputElement.style.border = inputElement.style.border =
+        "1.5px solid #b43333";
       spanElement.innerHTML = msgInput[inputValue[0]];
     }
   });
   event.preventDefault();
 });
+
