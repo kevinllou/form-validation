@@ -38,7 +38,6 @@ const inputTexts = document.querySelectorAll("input");
 inputTexts.forEach((inputElement) => {
   inputElement.addEventListener("input", (event) => {
     const inputId = inputElement.id;
-    const inputVal = inputElement;
     /* get the id span value by merging strings */
     const tempString = `msg${inputId
       .charAt(0)
@@ -46,11 +45,11 @@ inputTexts.forEach((inputElement) => {
     const span = document.getElementById(tempString);
 
     if (inputId !== "passwordConfirmation") {
-      checkInputValidation(inputId, inputVal, inputElement, span);
+      checkInputValidation(inputId, event.target.value, inputElement, span);
     } else {
       /* get the current password to compare */
       let currentPass = document.querySelector("#password").value;
-      checkPasswordMatch(currentPass, inputVal, inputElement, inputId, span);
+      checkPasswordMatch(currentPass, event.target.value, inputElement, inputId, span);
     }
   });
 });
