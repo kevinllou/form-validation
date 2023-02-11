@@ -16,20 +16,20 @@ const regexForInputs = {
 /* OBJECT MESSAGE */
 const msgInput = {
   firstName:
-    "Please provide a valid name <i class='<fa-solid fa-circle-exclamation'></i>",
+    "Please provide a valid name <i class='fa-solid fa-circle-exclamation'></i>",
   lastName:
-    "Please provide a valid last name <i class='<fa-solid fa-circle-exclamation'></i>",
+    "Please provide a valid last name <i class='fa-solid fa-circle-exclamation'></i>",
   phoneNumber:
-    "Please provide a valid phone number Ej [7809-9087] <i class='<fa-solid fa-circle-exclamation'></i>",
+    "Please provide a valid phone number Ej [7809-9087] <i class='fa-solid fa-circle-exclamation'></i>",
   email:
-    "Please provide a valid email <i class='<fa-solid fa-circle-exclamation'></i>",
-  age: "Please provide a valid age. Ej [1 - 99] <i class='<fa-solid fa-circle-exclamation'></i>",
+    "Please provide a valid email <i class='fa-solid fa-circle-exclamation'>",
+  age: "Please provide a valid age. Ej [1 - 99] <i class='fa-solid fa-circle-exclamation'>",
   website:
-    "Please provide a valid website URL <i class='<fa-solid fa-circle-exclamation'></i>",
+    "Please provide a valid website URL <i class='fa-solid fa-circle-exclamation'>",
   password:
-    "it must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character",
+    "it must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character <i class='fa-solid fa-circle-exclamation'>",
   passwordConfirmation:
-    "The passwords do not match <i class='<fa-solid fa-circle-exclamation'></i>",
+    "The passwords do not match <i class='fa-solid fa-circle-exclamation'>",
 };
 
 const inputTexts = document.querySelectorAll("input");
