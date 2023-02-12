@@ -97,6 +97,7 @@ form.addEventListener("submit", (event) => {
   /* Get the form data through the object Form Data */
   const formData = new FormData(form);
   const values = [...formData.entries()];
+  let validatedElements = values.length;
 
   /* Loop through every input to check if there is information avaliable, if not,
     we alert the user that he needs to enter valid information. 
@@ -117,8 +118,16 @@ form.addEventListener("submit", (event) => {
       inputElement.style.border = inputElement.style.border =
         "1.5px solid #b43333";
       spanElement.innerHTML = msgInput[inputValue[0]];
+
+      /* Decrease the number of inputs which haven't been submitted correctly */
+      validatedElements--;
     }
   });
+  console.log(validatedElements);
+  /* Print out form data if there is no errors */
+  if (validatedElements === values.length) {
+    console.log(values);
+  }
+
   event.preventDefault();
 });
-
