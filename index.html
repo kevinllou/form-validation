@@ -21,56 +21,63 @@
     </header>
 
     <main>
-        <h1>Sign up </h1>
+        <h1>Create your account</h1>
         <form class="form">
-            <div class="form__flex">
-                <div class="form__column">
-                    <div class="form__inputGroup">
-                        <label for="firstname">First name</label>
-                        <input type="text" placeholder="* Kevin" id="firstName" name="firstName">
-                        <span class="form__inputError" id="msgFirstName"></span>
-                    </div>
-                    <div class="form__inputGroup">
-                        <label for="phoneNumber">Phone number</label>
-                        <input type="text" placeholder="* 7816-7809" id="phoneNumber" name="phoneNumber">
-                        <span class="form__inputError" id="msgPhoneNumber"></span>
-                    </div>
-                    <div class="form__inputGroup">
-                        <label for="email">Email</label>
-                        <input type="text" placeholder="* someone@domain.com" id="email" name="email">
-                        <span class="form__inputError" id="msgEmail"></span>
-                    </div>
-                    <div class="form__inputGroup">
-                        <label for="password">Password</label>
-                        <input type="password" placeholder="*" id="password" name="password">
-                        <span class="form__inputError" id="msgPassword"></span>
-                    </div>
+            <div class="form__wrapper">
+                <div class="form__inputGroup">
+                    <label for="firstname">First name</label>
+                    <input type="text" placeholder="Kevin" id="firstName" name="firstName">
+                    <span class="form__inputError" id="msgFirstName"></span>
                 </div>
-
-                <div class="form__column">
-                    <div class="form__inputGroup">
-                        <label for="lastname">Last name</label>
-                        <input type="text" placeholder="* Grande" id="lastName" name="lastName">
-                        <span class="form__inputError" id="msgLastName"></span>
-                    </div>
-                    <div class="form__inputGroup">
-                        <label for="age">Age</label>
-                        <input type="text" placeholder="* 18" id="age" name="age">
-                        <span class="form__inputError" id="msgAge"></span>
-                    </div>
-                    <div class="form__inputGroup">
-                        <label for="website">Website</label>
-                        <input type="text" placeholder="* personalblog.com" id="website" name="website">
-                        <span class="form__inputError" id="msgWebsite"></span>
-                    </div>
-                    <div class="form__inputGroup">
-                        <label for="passwordConfirmation">Confirm password</label>
-                        <input type="password" placeholder="*" id="passwordConfirmation" name="passwordConfirmation">
-                        <span class="form__inputError" id="msgPasswordConfirmation"></span>
-                    </div>
+                <div class="form__inputGroup">
+                    <label for="lastname">Last name</label>
+                    <input type="text" placeholder="Grande" id="lastName" name="lastName">
+                    <span class="form__inputError" id="msgLastName"></span>
                 </div>
             </div>
-            <button type="submit">Register</button>
+            <div class="form__wrapper">
+                <div class="form__inputGroup">
+                    <label for="age">Age</label>
+                    <input type="text" placeholder="18" id="age" name="age">
+                    <span class="form__inputError" id="msgAge"></span>
+                </div>
+                <div class="form__inputGroup">
+                    <label for="phoneNumber">Phone number</label>
+                    <input type="text" placeholder="7816-7809" id="phoneNumber" name="phoneNumber">
+                    <span class="form__inputError" id="msgPhoneNumber"></span>
+                </div>
+            </div>
+
+            <div class="form__wrapper">
+                <div class="form__inputGroup">
+                    <label for="email">Email</label>
+                    <input type="text" placeholder="someone@domain.com" id="email" name="email">
+                    <span class="form__inputError" id="msgEmail"></span>
+                </div>
+                <div class="form__inputGroup">
+                    <label for="website">Website</label>
+                    <input type="text" placeholder="personalblog.com" id="website" name="website">
+                    <span class="form__inputError" id="msgWebsite"></span>
+                </div>
+            </div>
+
+
+            <div class="form__wrapper">
+                <div class="form__inputGroup">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <span class="form__inputError" id="msgPassword"></span>
+                </div>
+                <div class="form__inputGroup">
+                    <label for="passwordConfirmation">Confirm password</label>
+                    <input type="password" id="passwordConfirmation" name="passwordConfirmation">
+                    <span class="form__inputError" id="msgPasswordConfirmation"></span>
+                </div>
+            </div>
+
+            <div class="form__button">
+                <button type="submit">Sign up</button>
+            </div>
         </form>
     </main>
 
