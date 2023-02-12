@@ -27,7 +27,7 @@ const msgInput = {
   website:
     "Please provide a valid website URL <i class='fa-solid fa-circle-exclamation'>",
   password:
-    "it must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character <i class='fa-solid fa-circle-exclamation'>",
+    "it must contain at least 8 characters, one uppercase letter, lowercase letter, number and one special character <i class='fa-solid fa-circle-exclamation'>",
   passwordConfirmation:
     "The passwords do not match <i class='fa-solid fa-circle-exclamation'>",
 };
@@ -131,3 +131,20 @@ form.addEventListener("submit", (event) => {
 
   event.preventDefault();
 });
+
+/* KONAMI CODE */
+const keypressed = [];
+const secretCode = "applaudo";
+
+window.addEventListener("keyup", (event) => {
+  keypressed.push(event.key);
+  keypressed.splice(
+    -secretCode.length - 1,
+    keypressed.length - secretCode.length
+  );
+
+  if (keypressed.join("").includes(secretCode)) {
+    console.log("KONAMI CODE");
+  }
+});
+
