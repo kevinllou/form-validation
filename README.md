@@ -20,4 +20,5 @@ Secret Konami code: applaudo
 ## Deployment
 <strong> Vercel
 ## Link to the web page
+[Week-01](https://challenge-week-01.vercel.app/)
 
