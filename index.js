@@ -135,6 +135,8 @@ form.addEventListener("submit", (event) => {
 /* KONAMI CODE */
 const keypressed = [];
 const secretCode = "applaudo";
+const closebtn = document.querySelector(".sectionModal__close");
+const modal = document.querySelector(".sectionModal");
 
 window.addEventListener("keyup", (event) => {
   keypressed.push(event.key);
@@ -144,7 +146,12 @@ window.addEventListener("keyup", (event) => {
   );
 
   if (keypressed.join("").includes(secretCode)) {
-    console.log("KONAMI CODE");
+    modal.style.display = "flex";
   }
 });
 
+closebtn.addEventListener("click", (event) => {
+  if (modal.style.display === "flex") {
+    modal.style.display = "none";
+  }
+});

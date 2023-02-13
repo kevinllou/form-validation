@@ -11,16 +11,13 @@ body {
     background-color: rgb(58, 73, 82);
 }
 
+
 /* ---- HEADER ---- */
 .header {
     display: flex;
     align-items: center;
     height: 80px;
     margin-bottom: 2rem;
-
-    /*   box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76);
-    -webkit-box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76);
-    -moz-box-shadow: 1px -1px 14px -5px rgba(0, 0, 0, 0.76); */
 }
 
 .header a {
@@ -41,7 +38,7 @@ body {
 }
 
 /* ---- FORM ---- */
-main {
+.sectionForm {
     margin: 2rem auto;
     max-width: 750px;
     width: 95%;
@@ -49,7 +46,7 @@ main {
     border-radius: 1rem;
 }
 
-main h1 {
+.sectionForm h1 {
     text-align: center;
     font-weight: 700;
     color: #FFF;
@@ -83,20 +80,6 @@ main h1 {
     font-size: 1rem;
     color: #FFF;
 }
-
-/* 
-
-.form__inputGroup input {
-    padding: .8rem .5rem;
-    border: none;
-    border-radius: .4rem;
-    background-color: rgba(128, 150, 156, 0.144);
-    color: #FFF;
-}
-
-
-
-*/
 
 .form__inputGroup input::placeholder {
     font-size: 1rem;
@@ -140,7 +123,7 @@ main h1 {
 
 
 @media (min-width: 768px) {
-    main {
+    .sectionForm {
         width: 80%;
         background-color: rgb(0, 0, 0);
 
@@ -167,7 +150,7 @@ main h1 {
 }
 
 @media (min-width: 576px) {
-    main {
+    .sectionForm {
         width: 90%;
     }
 
@@ -176,7 +159,7 @@ main h1 {
 
     }
 
-    main h1 {
+    .sectionForm h1 {
         font-size: 2rem;
     }
 
@@ -187,4 +170,59 @@ main h1 {
     .form button[type="submit"] {
         margin: 3rem auto;
     }
+}
+
+.sectionModal {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(39, 39, 39, 0.897);
+    color: #FFF;
+
+}
+
+.sectionModal__wrapper {
+    max-width: 400px;
+    width: 100%;
+    margin: auto auto;
+    background: rgb(61, 94, 117);
+    background: linear-gradient(90deg, rgb(36, 36, 131) 0%, rgb(36, 44, 66) 47%);
+    padding: 2rem .8rem;
+    border-radius: .4rem;
+}
+
+.sectionModal__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionModel__text {
+    margin-bottom: 1rem;
+}
+
+.sectionModel__text h1 {
+    text-align: center;
+}
+
+.sectionModal__close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+}
+
+.sectionModal__close span {
+    border: 1px solid #4d4d85d3;
+    padding: .2rem .8rem;
+    border-radius: 2rem;
+    font-size: .8rem;
+    font-weight: 700;
 }
