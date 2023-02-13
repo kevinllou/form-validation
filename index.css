@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope', sans-serif;
+}
+
+body {
+    background-color: rgb(14, 14, 14);
+
+}
+
+@media (min-width: 768px) {
+    body {
+        background-color: rgb(58, 73, 82);
+
+    }
+}
+
+/* ---- HEADER ---- */
+.header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 2rem;
+}
+
+.header a {
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 700;
+}
+
+.header__logo {
+    margin-left: 1rem;
+    height: 40px;
+    width: 40px;
+
+}
+
+.header__logo img {
+    max-width: 100%;
+}
+
+/* ---- FORM ---- */
+.sectionForm {
+    margin: 2rem auto;
+    max-width: 750px;
+    width: 95%;
+
+    border-radius: 1rem;
+}
+
+.sectionForm h1 {
+    text-align: center;
+    font-weight: 700;
+    color: #FFF;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.form {
+    padding: 1rem;
+}
+
+
+.form__inputGroup {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.form__inputGroup label {
+    color: #FFF;
+    margin-bottom: 5px;
+    font-size: .9rem;
+}
+
+.form__inputGroup input {
+    padding: .8rem .5rem;
+    border: 1.5px solid rgb(133, 133, 133);
+    border-radius: .4rem;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #FFF;
+}
+
+.form__inputGroup input::placeholder {
+    font-size: 1rem;
+    color: #858585;
+    animation: ease-in-out;
+}
+
+.form__inputGroup input:focus {
+    outline: none;
+    border: 1.5px solid #1DABDD;
+}
+
+.form__button {
+    display: flex;
+}
+
+.form button[type="submit"] {
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    margin: 1rem auto;
+    width: 90%;
+    padding: .7rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+    font-weight: bold;
+}
+
+.form button[type="submit"]:hover {
+    background-color: #dfdede;
+    cursor: pointer;
+}
+
+.form__inputError {
+    position: absolute;
+    top: 4.5rem;
+    color: #b43333;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+
+@media (min-width: 768px) {
+    .sectionForm {
+        width: 80%;
+        background-color: rgb(14, 14, 14);
+
+    }
+
+    .form__wrapper {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .form__inputGroup {
+        flex: 1;
+
+    }
+
+    .form__inputGroup input {
+        border: 1px solid rgba(128, 150, 156, 0.527);
+    }
+
+    .form button[type="submit"] {
+        width: 70%;
+    }
+
+}
+
+@media (min-width: 576px) {
+    .sectionForm {
+        width: 90%;
+    }
+
+    .form {
+        padding: 2rem 3rem;
+
+    }
+
+    .sectionForm h1 {
+        font-size: 2rem;
+    }
+
+    .form__inputGroup {
+        margin-bottom: 2rem;
+    }
+
+    .form button[type="submit"] {
+        margin: 3rem auto;
+    }
+}
+
+/*  MODAL KONAMI CODE */
+
+.sectionModal {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(39, 39, 39, 0.897);
+    color: #FFF;
+
+}
+
+.sectionModal__wrapper {
+    max-width: 400px;
+    width: 100%;
+    margin: auto auto;
+    background: rgb(61, 94, 117);
+    background: linear-gradient(90deg, rgb(36, 36, 131) 0%, rgb(36, 44, 66) 47%);
+    padding: 2rem .8rem;
+    border-radius: .4rem;
+}
+
+.sectionModal__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionModel__text {
+    margin-bottom: 1rem;
+}
+
+.sectionModel__text h1 {
+    text-align: center;
+}
+
+.sectionModal__close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+}
+
+.sectionModal__close span {
+    border: 1px solid #4d4d85d3;
+    padding: .2rem .8rem;
+    border-radius: 2rem;
+    font-size: .8rem;
+    font-weight: 700;
+}
