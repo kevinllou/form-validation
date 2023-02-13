@@ -1,41 +1,15 @@
+import { msgInput } from "./const.js";
+import { checkInputValidation, checkPasswordMatch } from "./helper.js";
+
 const form = document.querySelector(".form");
+const inputElements = document.querySelectorAll("input");
+const keypressed = [];
+const secretCode = "applaudo";
+const closebtn = document.querySelector(".sectionModal__close");
+const modal = document.querySelector(".sectionModal");
 
-/* REGEX OBJECT  */
-const regexForInputs = {
-  firstName: /^[\p{L} ,.'-]+$/u,
-  lastName: /^[\p{L} ,.'-]+$/u,
-  phoneNumber: /^\d{4}[-]\d{4}$/,
-  email: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/,
-  age: /^[1-9][0-9]$/,
-  website:
-    /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
-  password:
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-};
-
-/* OBJECT MESSAGE */
-const msgInput = {
-  firstName:
-    "Please provide a valid name <i class='fa-solid fa-circle-exclamation'></i>",
-  lastName:
-    "Please provide a valid last name <i class='fa-solid fa-circle-exclamation'></i>",
-  phoneNumber:
-    "Please provide a valid phone number Ej [7809-9087] <i class='fa-solid fa-circle-exclamation'></i>",
-  email:
-    "Please provide a valid email <i class='fa-solid fa-circle-exclamation'>",
-  age: "Please provide a valid age. Ej [1 - 99] <i class='fa-solid fa-circle-exclamation'>",
-  website:
-    "Please provide a valid website URL <i class='fa-solid fa-circle-exclamation'>",
-  password:
-    "it must contain at least 8 characters, one uppercase letter, lowercase letter, number and one special character <i class='fa-solid fa-circle-exclamation'>",
-  passwordConfirmation:
-    "The passwords do not match <i class='fa-solid fa-circle-exclamation'>",
-};
-
-const inputTexts = document.querySelectorAll("input");
-
-/* Add event  listener to each input text type*/
-inputTexts.forEach((inputElement) => {
+/* Event  listener to each input element*/
+inputElements.forEach((inputElement) => {
   inputElement.addEventListener("input", (event) => {
     const inputId = inputElement.id;
     /* get the id span value by merging strings */
@@ -47,8 +21,8 @@ inputTexts.forEach((inputElement) => {
     if (inputId !== "passwordConfirmation") {
       checkInputValidation(inputId, event.target.value, inputElement, span);
     } else {
-      /* get the current password to compare */
-      let currentPass = document.querySelector("#password").value;
+      /* get the current password to validate */
+      const currentPass = document.querySelector("#password").value;
       checkPasswordMatch(
         currentPass,
         event.target.value,
@@ -60,38 +34,7 @@ inputTexts.forEach((inputElement) => {
   });
 });
 
-/* Check if the passwords match */
-function checkPasswordMatch(
-  passwordVal,
-  passwordCheck,
-  inputElem,
-  idReference,
-  spanElem
-) {
-  /*   console.log(`ps1: ${passwordVal}, ps2: ${passwordCheck}`); */
-  if (!passwordVal.includes(passwordCheck)) {
-    spanElem.innerHTML = msgInput[idReference];
-    inputElem.style.border = "2px solid #b43333";
-  } else {
-    spanElem.innerHTML = "";
-    inputElem.style.border = "";
-  }
-}
-
-/* If it doesn't match we change the span value to an error, if not, 
-   we remove the span error message.
- */
-function checkInputValidation(idReference, currentValue, inputElem, spanElem) {
-  if (!regexForInputs[idReference].test(currentValue)) {
-    spanElem.innerHTML = msgInput[idReference];
-    inputElem.style.border = "1.5px solid #b43333";
-  } else {
-    spanElem.innerHTML = "";
-    inputElem.style.border = "";
-  }
-}
-
-/* SUBMIT */
+/* ---- SUBMIT LISTENER ----*/
 
 form.addEventListener("submit", (event) => {
   /* Get the form data through the object Form Data */
@@ -123,33 +66,31 @@ form.addEventListener("submit", (event) => {
       validatedElements--;
     }
   });
-  console.log(validatedElements);
   /* Print out form data if there is no errors */
   if (validatedElements === values.length) {
     console.log(values);
   }
-
   event.preventDefault();
 });
 
-/* KONAMI CODE */
-const keypressed = [];
-const secretCode = "applaudo";
-const closebtn = document.querySelector(".sectionModal__close");
-const modal = document.querySelector(".sectionModal");
+/* ---- KONAMI CODE ---- */
 
 window.addEventListener("keyup", (event) => {
+  /* Add the pressed key to the array */
   keypressed.push(event.key);
+  /* Limit the length of the array by tracking just the last n (length of the secret code)
+   letters so that way we can still compare with an small amount  */
   keypressed.splice(
     -secretCode.length - 1,
     keypressed.length - secretCode.length
   );
-
+ /* If the secret code is pressed it will trigger a modal */
   if (keypressed.join("").includes(secretCode)) {
     modal.style.display = "flex";
   }
 });
 
+/* Close the modal once it's open */
 closebtn.addEventListener("click", (event) => {
   if (modal.style.display === "flex") {
     modal.style.display = "none";
