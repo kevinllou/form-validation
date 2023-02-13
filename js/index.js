@@ -77,7 +77,7 @@ form.addEventListener("submit", (event) => {
 
 window.addEventListener("keyup", (event) => {
   /* Add the pressed key to the array */
-  keypressed.push(event.key);
+  keypressed.push(event.key.toLowerCase());
   /* Limit the length of the array by tracking just the last n (length of the secret code)
    letters so that way we can still compare with an small amount  */
   keypressed.splice(
