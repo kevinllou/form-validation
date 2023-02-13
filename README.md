@@ -11,7 +11,7 @@ Implement your own Konami Code into the project. <br>
 - User should see the trick after pressing the right sequence of keys, it can be either container letters or numbers.
 - The sequence shouldn't be case sentitive.
 
-Secret Konami code: <7892>
+Secret Konami code: applaudo
 
 ## Tools
 - HTML
