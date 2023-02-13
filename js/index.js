@@ -77,14 +77,15 @@ form.addEventListener("submit", (event) => {
 
 window.addEventListener("keyup", (event) => {
   /* Add the pressed key to the array */
-  keypressed.push(event.key.toLowerCase());
+  event.key !== undefined && keypressed.push(event.key.toLowerCase());
   /* Limit the length of the array by tracking just the last n (length of the secret code)
    letters so that way we can still compare with an small amount  */
   keypressed.splice(
     -secretCode.length - 1,
     keypressed.length - secretCode.length
   );
- /* If the secret code is pressed it will trigger a modal */
+
+  /* If the secret code is pressed it will trigger a modal */
   if (keypressed.join("").includes(secretCode)) {
     modal.style.display = "flex";
   }
